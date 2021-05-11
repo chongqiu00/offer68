@@ -1,4 +1,41 @@
 ##### 剑指offer
+###### 第一章 面试流程
+1.1 把一个字符串转换为整数。
+1.2 求链表中的倒数第K个结点（面试题中有）。
+
+###### 第二章 面试需要的基础知识
+2.1. 定义一个空类型；空类型中有构造和析构函数；空类型有虚函数时，sizeof()为多少。
+2.2. 考虑下面代码的运行情况。
+选项：A:编译错误 B:编译成功，运行程序崩溃 C:编译运行正常，输出10。
+```C
+class A
+{
+    private:
+    int value;
+
+    public:
+    A(int n)
+    : value(n){}
+    A( A& other )
+    //A( A other) //形参传值，会拷贝赋值
+    {
+        value = other.value;
+    }
+
+    void Printf()
+    {
+        std::cout << this->value << std::endl;
+    }
+
+};
+int main(int arggc, char* argv[])
+{
+    A a = 10;
+    A b = a;
+    b.Printf();
+
+}
+```
 1. 如下为类型CMyString的声明，请为该类型添加赋值运算符函数
 class CMyString
 {
