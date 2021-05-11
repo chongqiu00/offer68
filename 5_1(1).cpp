@@ -5,7 +5,6 @@
 
 请实现一个函数，把字符串中的每个空格替换成"%20"。
 例如：输入"We are happy." ,则输出"We%20are%20happy."
-
 */
 //方法一：从前往后赋值，时间复杂度为O(n^2)。
 
@@ -42,6 +41,7 @@ void text01(void) //测试数据_1
     char* str_7 = NULL;     ReplaceBlank(str_7);
 
 }
+
 void text02(void) //测试数据_2
 {
     char str_1[2] = " ";
@@ -49,9 +49,18 @@ void text02(void) //测试数据_2
     char str_3[] = " We are happy.";
     char str_4[] = "We are happy. ";
     char str_5[] = "Wearehappy.";
-    char str_6[1] = "";   
-    char* str_7 = NULL;     
+    char str_6[1] = "";  
+    
+    char* ptr = (char*) malloc(1*sizeof(char));
+    if ( ptr == NULL )
+    {
+        printf("分配内存失败！");
+    }
+    char** pp = &ptr;
+    *pp = NULL;
 
+    char* str_7 = NULL;
+   
     std::cout << "字串1" << "\" \"转化后：";   
     ReplaceBlank(str_1); std::cout << str_1 << std::endl;
     std::cout << "字串2" << "\"We are happy.\"转化后：";   
@@ -65,7 +74,10 @@ void text02(void) //测试数据_2
     std::cout << "字串6" << "\"\"转化后：";   
     ReplaceBlank(str_6); std::cout << str_6 << std::endl;
 
-    ReplaceBlank(str_7);
+    ReplaceBlank(ptr);
+
+    free(ptr);
+    printf("zww\n");
 
 }
 
@@ -85,7 +97,6 @@ bool ReplaceBlank(char* str)
         std::cout << "输入的字串非法，转换失败！" << std::endl;
         return false;
     } 
-
     //输入合法
     char* pTail = str; 
     char* pTemp = pTail;
@@ -94,6 +105,7 @@ bool ReplaceBlank(char* str)
     {
         pTail++;
     } //pTail保持指向字串尾。
+
     while ( *pHead!= '\0' ) //从头至尾扫描。
     {
         if ( *pHead == ' ' ) //发现目标空格，开始后移两个单元
