@@ -1,7 +1,10 @@
 /*
 剑指offer:
 将字符串转化为整数。
+注意：
+1）输入数据的合法性。
 */
+
 #include <iostream>
 
 int StrToInt(const char* str);
