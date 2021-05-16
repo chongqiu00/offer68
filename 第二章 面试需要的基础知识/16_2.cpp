@@ -15,6 +15,7 @@ double PowerWithUnsingnedExponent(double base, unsigned int exponent)
 
     return result;
 }
+
 int main(int argc, char* argv[])
 {
     std::cout << PowerWithUnsingnedExponent(2.0, 3) << std::endl;
