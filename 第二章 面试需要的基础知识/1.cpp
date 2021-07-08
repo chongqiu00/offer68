@@ -105,7 +105,6 @@ char& String::operator[](unsigned int info)
   return this->m_pData[info-1];
 }
 
-
 bool String::operator==(const String& str) //重载==
 {
   if ( (this->m_Size == str.m_Size) && (strcmp(this->m_pData, str.m_pData)==0) )
@@ -138,9 +137,9 @@ String& String::operator=(const String& str)//考虑到String的隐式构造函数，我们要
 */
 
 //为了解决内存分配异常抛出
-tring& String::operator=(const String& str)//考虑到String的隐式构造函数，我们要重载操作符=
+String& String::operator=(const String& str)//考虑到String的隐式构造函数，我们要重载操作符=
 {
-  if ( *this == str )
+  if ( *this != str )
   {
     //在栈中，设置一个临时对象，避免重新申请内存空间。
     String temStr(str);

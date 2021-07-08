@@ -4,7 +4,6 @@
 */
 
 #include <iostream>
-
 class A
 {
     private:
@@ -13,6 +12,7 @@ class A
     public:
     A(int n)
     : value(n){}
+    
     A( A& other )
     //A( A other) //形参传值，会拷贝赋值
     {

@@ -27,7 +27,7 @@ int StrToInt(const char* str)
 
     while ( *str != 0 )
     {
-        std::cout << *str << std::endl; 
+        //std::cout << *str << std::endl; 
         number = number*10 + *str - '0';
         ++str;
     }
